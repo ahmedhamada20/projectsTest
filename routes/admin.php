@@ -47,8 +47,10 @@ Route::middleware(['auth', 'checkInformation'])->group(function () {
 
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/getSubcrations', [HomeController::class, 'getSubcrations'])->name('getSubcrations');
+    Route::get('/getSubcrationsexam/{customer_id}/{cousrs_id}', [HomeController::class, 'getSubcrationsexam'])->name('getSubcrationsexam');
     Route::post('/editExamCousrs', [HomeController::class, 'editExamCousrs'])->name('editExamCousrs');
     Route::post('/photoExamCousrs', [HomeController::class, 'photoExamCousrs'])->name('photoExamCousrs');
+    Route::post('/deletedgetSubcrationsexam', [HomeController::class, 'deletedgetSubcrationsexam'])->name('deletedgetSubcrationsexam');
 
     Route::get('setting', [SettingController::class, 'index'])->name('setting');
     Route::post('setting/{id}', [SettingController::class, 'update'])->name('setting.update');

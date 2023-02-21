@@ -61,43 +61,50 @@
                                         </script>
                                     </div><!-- /.count-down-wrapper -->
                                     @auth('customer')
-                                    
+
                                     @if(App\Models\SubcripeCorses::where('course_id',$data->id)->where('customer_id',auth('customer')->user()->id)->first())
                                     @else
-                                    <a href="#" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn" id="btn-course-join">Join Course</a>
-                                  
-                                    <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal{{ $data->id }}"
+                                        class="btn" id="btn-course-join">Join Course</a>
+
+                                    <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel">تاكيد الاشتراك في الكورس</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                             <form action="{{ route('subsripeCousrse') }}" method="post" autocomplete="off">
-                                                @csrf
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">تاكيد الاشتراك في
+                                                        الكورس</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('subsripeCousrse') }}" method="post"
+                                                        autocomplete="off">
+                                                        @csrf
 
-                                                <h5>{{ $data->name }}</h5>
+                                                        <h5>{{ $data->name }}</h5>
 
-<input type="hidden" name="course_id" value="{{ $data->id }}">
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                                                    <button type="submit" class="btn btn-primary">تاكيد الاشتراك</button>
-                                                  </div>
-                                             </form>
+                                                        <input type="hidden" name="course_id" value="{{ $data->id }}">
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">اغلاق</button>
+                                                            <button type="submit" class="btn btn-primary">تاكيد
+                                                                الاشتراك</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
                                             </div>
-                                            
-                                          </div>
                                         </div>
-                                      </div>
-                                  
+                                    </div>
+
                                     @endif
 
 
                                     @else
-                                    
+
                                     <a href="{{ route('register_sign') }}" class="btn" id="btn-course-join">Login</a>
 
                                     @endauth
@@ -169,8 +176,8 @@
                                                                 @auth('customer')
                                                                 @if(App\Models\SubcripeCorses::where('course_id',$data->id)->where('customer_id',auth('customer')->user()->id)->first())
                                                                 <strong>Video Preview</strong>
-                                                                {{-- <iframe src="{{ $data->url }}" width="500" height="281"
-                                                                    frameborder="0" webkitallowfullscreen
+                                                                {{-- <iframe src="{{ $data->url }}" width="500"
+                                                                    height="281" frameborder="0" webkitallowfullscreen
                                                                     mozallowfullscreen allowfullscreen></iframe> --}}
                                                                 @else
                                                                 <strong>subscription courses</strong>
@@ -179,8 +186,8 @@
                                                                 @else
                                                                 <a href="{{ route('register_sign') }}">Login</strong>
 
-                                                                @endauth
-                                                                
+                                                                    @endauth
+
 
 
                                                             </div><!-- /.inner -->
@@ -207,66 +214,26 @@
                                             allowfullscreen></iframe></div> --}}
                                     <div class="tab-pane fade" id="tab-speakers">
                                         <section id="course-speakers">
+                                            @foreach ($data->numbers as $number)
                                             <div class="author-block course-speaker">
-                                                <a href="member-detail.html">
-                                                    <figure class="author-picture"><img
-                                                            src="assets/img/student-testimonial.jpg" alt=""></figure>
-                                                </a>
+                                              
                                                 <article class="paragraph-wrapper">
                                                     <div class="inner">
                                                         <a href="member-detail.html">
-                                                            <header>Claire Doe</header>
+                                                            <header>{{ $number->name }}</header>
                                                         </a>
-                                                        <figure>Marketing Specialist</figure>
+                                                    
                                                         <p>
-                                                            Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit
-                                                            et, interdum semper quam. Fusce in interdum tortor.
-                                                            Ut sollicitudin lectus dolor eget imperdiet libero pulvinar
-                                                            sit amet.
+                                                            {!! Str::limit($number->notes, 50) !!}
                                                         </p>
                                                     </div>
                                                 </article>
-                                            </div><!-- /.author -->
-                                            <div class="author-block course-speaker">
-                                                <a href="member-detail.html">
-                                                    <figure class="author-picture"><img
-                                                            src="assets/img/discussion-author-02.jpg" alt=""></figure>
-                                                </a>
-                                                <article class="paragraph-wrapper">
-                                                    <div class="inner">
-                                                        <a href="member-detail.html">
-                                                            <header>Rachel Britain</header>
-                                                        </a>
-                                                        <figure>Data Architect</figure>
-                                                        <p>
-                                                            Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit
-                                                            et, interdum semper quam. Fusce in interdum tortor.
-                                                            Ut sollicitudin lectus dolor eget imperdiet libero pulvinar
-                                                            sit amet.
-                                                        </p>
-                                                    </div>
-                                                </article>
-                                            </div><!-- /.author -->
-                                            <div class="author-block course-speaker">
-                                                <a href="member-detail.html">
-                                                    <figure class="author-picture"><img
-                                                            src="assets/img/discussion-author-03.jpg" alt=""></figure>
-                                                </a>
-                                                <article class="paragraph-wrapper">
-                                                    <div class="inner">
-                                                        <a href="member-detail.html">
-                                                            <header>John Doe</header>
-                                                        </a>
-                                                        <figure>Senior Designer</figure>
-                                                        <p>
-                                                            Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit
-                                                            et, interdum semper quam. Fusce in interdum tortor.
-                                                            Ut sollicitudin lectus dolor eget imperdiet libero pulvinar
-                                                            sit amet.
-                                                        </p>
-                                                    </div>
-                                                </article>
-                                            </div><!-- /.author -->
+                                            </div>
+                                            @endforeach
+                                       
+                                            
+                                            <!-- /.author -->
+                                            
                                         </section><!-- /#course-speakers -->
                                     </div>
                                     {{-- <div class="tab-pane fade" id="tab-gallery">
@@ -335,27 +302,52 @@
                                             <!-- end Question -->
                                         </ul><!-- /.faq-list -->
                                     </div>
-                                    
-                                    
-                                    
+
+
+
                                     <div class="tab-pane fade" id="tab-exam">
                                         <ul class="faq-list">
                                             <!-- Question -->
-                                            @foreach ($data->exams as $exam )
-                                            <li>
-                                                <h5>
-                                                    {{ $exam->name }}
-                                                </h5>
+                                            <form action="{{ route('sendQuesCustomers') }}" method="post">
+                                                @csrf
+                                                @foreach ($data->exams as $exam )
+                                                <li>
+                                                    <h5>
+                                                        {{ $exam->name }}
+                                                    </h5>
 
-                                                <form action="" method="post">
-                                                    @csrf
+                                                    <form action="{{ route('sendQuesCustomers') }}" method="post">
+                                                        @csrf
 
-                                                    <input type="text" class="form-control mt-5" required name="exam">
-                                                    <button class="btn btn-success btn-sm mt-1">submit</button>
-                                                </form>
+                                                        <input type="hidden" value="{{ $data->id }}" name="course_id">
 
-                                            </li>
-                                            @endforeach
+                                                        <input type="hidden" name="exam_id[]" value="{{ $exam->id }}">
+
+                                                        @auth('customer')
+                                                        @if ($information = App\Models\sendQuesCustomer::where('course_id',$data->id)->where('customer_id',auth('customer')->user()->id)->where('exam_id',$exam->id)->first())
+
+                                                        <input type="text" class="form-control mt-5" readonly
+                                                            value="{{ $information->text }}">
+                                                        @else
+                                                        <input type="text" class="form-control mt-5" required
+                                                            name="exam[]">
+                                                        @endif
+                                                        @endauth
+
+                                                        <br>
+
+
+
+                                                </li>
+                                                @endforeach
+                                                @auth('customer')
+                                                @if (!(App\Models\sendQuesCustomer::where('course_id',$data->id)->where('customer_id',auth('customer')->user()->id)->first()))
+                                                <button class="btn btn-success btn-sm mt-1">submit</button>
+                                                @endif
+                                                @endauth
+                                           
+
+                                            </form>
 
                                             <!-- end Question -->
                                             <!-- Question -->
@@ -363,7 +355,7 @@
                                             <!-- end Question -->
                                         </ul><!-- /.faq-list -->
                                     </div>
-                                    
+
                                     <!-- /#tab-faq -->
                                 </div><!-- /Tab panes -->
                             </section><!-- /#course-tabs -->
@@ -529,18 +521,18 @@
 
                             <section id="join-to-course" class="center">
                                 @auth('customer')
-                                    
-                                    @if(App\Models\SubcripeCorses::where('course_id',$data->id)->where('customer_id',auth('customer')->user()->id)->first())
-                                    @else
-                                    <a href="register-sign-in.html" class="btn" id="btn-course-join">Join Course</a>
-                                    @endif
+
+                                @if(App\Models\SubcripeCorses::where('course_id',$data->id)->where('customer_id',auth('customer')->user()->id)->first())
+                                @else
+                                <a href="register-sign-in.html" class="btn" id="btn-course-join">Join Course</a>
+                                @endif
 
 
-                                    @else
-                                    
-                                    <a href="{{ route('register_sign') }}" class="btn" id="btn-course-join">Login</a>
+                                @else
 
-                                    @endauth
+                                <a href="{{ route('register_sign') }}" class="btn" id="btn-course-join">Login</a>
+
+                                @endauth
                                 {{-- <a href="register-sign-in.html" class="btn">Join Course</a> --}}
                             </section><!-- /#join-to-course -->
 
@@ -666,7 +658,7 @@
                                 </ul><!-- /.discussion-list -->
                             </section><!-- /.comments --> --}}
 
-                            <section id="leave-reply">
+                            {{-- <section id="leave-reply">
                                 <header>
                                     <h2>Leave a Reply</h2>
                                 </header>
@@ -704,7 +696,7 @@
                                         <input type="submit" class="btn btn-color-primary" value="Reply">
                                     </div><!-- /.form-actions -->
                                 </form><!-- /.reply-form -->
-                            </section>
+                            </section> --}}
 
                         </article><!-- /.course-detail -->
                     </section><!-- /.course-detail -->
@@ -748,7 +740,7 @@
                         <!-- /.course-thumbnail .small -->
                     </aside><!-- /#related-courses -->
 
-                    <aside class="news-small" id="news-small">
+                    {{-- <aside class="news-small" id="news-small">
                         <header>
                             <h2>News</h2>
                         </header>
@@ -769,7 +761,7 @@
 
                             <!-- /.section-content -->
                             <a href="" class="read-more">All News</a>
-                    </aside><!-- /.news-small -->
+                    </aside><!-- /.news-small --> --}}
                     <aside id="archive">
                         <header>
                             <h2>Course</h2>

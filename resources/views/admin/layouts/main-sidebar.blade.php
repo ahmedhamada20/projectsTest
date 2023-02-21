@@ -56,7 +56,7 @@
             </li>
             @endcan
 
-            <li class="side-item side-item-category">بيانات الاشتراكات</li>
+            <li class="side-item side-item-category">الطلاب المشتركين في الكورس</li>
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('getSubcrations') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -65,10 +65,10 @@
                         <path
                             d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z" />
                     </svg>
-                    <span class="side-menu__label">بيانات الاشتراكات</span></a>
+                    <span class="side-menu__label">الطلاب المشتركين في الكورس</span></a>
             </li>
 
-            @can('permissions-List')
+            {{-- @can('permissions-List')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -89,8 +89,8 @@
                     @endcan
                 </ul>
             </li>
-            @endcan
-
+            @endcan --}}
+{{-- 
              @can('list-aboutUs')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
@@ -106,13 +106,13 @@
 
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
 
 
 
 
-
+{{-- 
             @can('list-Product')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
@@ -128,7 +128,7 @@
 
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
             @can('list-previousWork')
             <li class="slide">
@@ -139,15 +139,15 @@
                         <path
                             d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
                     </svg>
-                    <span class="side-menu__label">سابقه الاعمال</span><i class="angle fe fe-chevron-down"></i></a>
+                    <span class="side-menu__label">الاسئله الشائعه الخاصه بالكورس</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{route('previousWork.index') }}">سابقه الاعمال</a></li>
+                    <li><a class="slide-item" href="{{route('previousWork.index') }}">الاسئله الشائعه الخاصه بالكورس</a></li>
 
                 </ul>
             </li>
             @endcan
 
-            @can('list-gallery')
+            {{-- @can('list-gallery')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -162,9 +162,9 @@
 
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
-
+{{-- 
             @can('list-blog')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
@@ -180,7 +180,7 @@
 
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
             @can('list-category')
             <li class="slide">
@@ -245,9 +245,9 @@
                         <path
                             d="M22 9h-4.79l-4.38-6.56c-.19-.28-.51-.42-.83-.42s-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1zM12 4.8L14.8 9H9.2L12 4.8zM18.5 19l-12.99.01L3.31 11H20.7l-2.2 8zM12 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                     </svg>
-                    <span class="side-menu__label">الاعضاء</span><i class="angle fe fe-chevron-down"></i></a>
+                    <span class="side-menu__label">المدرسين</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ route('number.index') }}">الاعضاء</a></li>
+                    <li><a class="slide-item" href="{{ route('number.index') }}">المدرسين</a></li>
                 </ul>
             </li>
             @endcan
@@ -271,7 +271,7 @@
             </li>
             @endcan --}}
 
-            @can('list-event')
+            {{-- @can('list-event')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -287,9 +287,9 @@
                     <li><a class="slide-item" href="{{ route('event.index') }}">الاحداث</a></li>
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
-            @can('list-news')
+            {{-- @can('list-news')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -305,9 +305,9 @@
                     <li><a class="slide-item" href="{{ route('news.index') }}">الاخبار</a></li>
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
-            @can('list-ads')
+            {{-- @can('list-ads')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -323,9 +323,9 @@
                     <li><a class="slide-item" href="{{ route('ads.index') }}">الاعلانات</a></li>
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
-            @can('list-packages')
+            {{-- @can('list-packages')
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -344,7 +344,7 @@
             @endcan
 
             {{-- @can('list-zoom') --}}
-            <li class="slide">
+            {{-- <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0V0z" fill="none" />
@@ -358,7 +358,7 @@
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="{{ route('zoom.index') }}">حصص اون لاين</a></li>
                 </ul>
-            </li>
+            </li> --}}
             {{-- @endcan --}}
 
 
@@ -373,9 +373,9 @@
                         <path
                             d="M22 9h-4.79l-4.38-6.56c-.19-.28-.51-.42-.83-.42s-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1zM12 4.8L14.8 9H9.2L12 4.8zM18.5 19l-12.99.01L3.31 11H20.7l-2.2 8zM12 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                     </svg>
-                    <span class="side-menu__label">الاختبارات</span><i class="angle fe fe-chevron-down"></i></a>
+                    <span class="side-menu__label">اسئله الامحتانات الخاصه بالكورس</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ route('exam.index') }}">الاختبارات</a></li>
+                    <li><a class="slide-item" href="{{ route('exam.index') }}">اسئله الامحتانات الخاصه بالكورس</a></li>
                 </ul>
             </li>
             {{-- @endcan --}}

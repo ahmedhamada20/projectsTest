@@ -64,7 +64,7 @@
             </div><!-- /.col-md-8 -->
 
             <!--SIDEBAR Content-->
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div id="page-sidebar" class="sidebar">
                     <aside class="news-small" id="news-small">
                         <header>
@@ -102,7 +102,8 @@
                         </header>
                     </aside><!-- /archive -->
                 </div><!-- /#sidebar -->
-            </div><!-- /.col-md-4 -->
+            </div> --}}
+            <!-- /.col-md-4 -->
             <!-- end SIDEBAR Content-->
         </div><!-- /.row -->
     </div><!-- /.container -->

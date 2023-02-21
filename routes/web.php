@@ -44,6 +44,8 @@ Route::middleware(['auth:customer'])->group(function(){
     Route::post('logut_customer',[CustomerLoginController::class,'destroy'])->name('logut_customer');
 
     Route::post('subsripeCousrse',[CustomerLoginController::class,'subsripeCousrse'])->name('subsripeCousrse');
+
+    Route::post('sendQuesCustomers',[CustomerLoginController::class,'sendQuesCustomers'])->name('sendQuesCustomers');
 });
 
 

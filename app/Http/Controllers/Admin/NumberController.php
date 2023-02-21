@@ -67,6 +67,7 @@ class NumberController extends Controller
             'name' => ['ar' => $request->name, 'en' => $request->name_en],
             'notes' => ['ar' => $request->notes, 'en' => $request->notes_en],
             'status' => $request->status,
+            'course_id' => $request->course_id,
 
 
         ]);
@@ -139,17 +140,18 @@ class NumberController extends Controller
         $data->update([
             'name' => ['ar' => $request->name, 'en' => $request->name_en],
             'notes' => ['ar' => $request->notes, 'en' => $request->notes_en],
+            'course_id' => $request->course_id,
 
         ]);
         
-        Seo::UpdateOrcreate([
-            'seoable_type'=> $this->data['Models'],
-            'seoable_id' => $data->id,
-        ],[
-            'seoable_type'=> $this->data['Models'],
-            'seoable_id' => $data->id,
-            'notes' => $request->seo
-        ]);
+        // Seo::UpdateOrcreate([
+        //     'seoable_type'=> $this->data['Models'],
+        //     'seoable_id' => $data->id,
+        // ],[
+        //     'seoable_type'=> $this->data['Models'],
+        //     'seoable_id' => $data->id,
+        //     'notes' => $request->seo
+        // ]);
 
         // Inset One Photo
 

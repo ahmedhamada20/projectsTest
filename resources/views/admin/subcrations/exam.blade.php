@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-بيانات الاشتراك
+اجابه الامتحانات على الكورس
 @endsection
 @section('css')
 
@@ -12,8 +12,8 @@
 <div class="breadcrumb-header justify-content-between">
     <div class="my-auto">
         <div class="d-flex">
-            <h4 class="content-title mb-0 my-auto"> بيانات الاشتراك</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                بيانات الاشتراك</span>
+            <h4 class="content-title mb-0 my-auto"> اجابه الامتحانات على الكورس</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                اجابه الامتحانات على الكورس</span>
         </div>
     </div>
 
@@ -49,12 +49,12 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>photo</th>
-                                <th>Cousrs</th>
-                                <th>Customer</th>
-                                <th>exam</th>
+                                
+                                <th>Exam</th>
+                          
+                                <th>test</th>
 
-                                <th>Action</th>
+                                {{-- <th>Action</th> --}}
 
                             </tr>
                         </thead>
@@ -63,41 +63,27 @@
                             @forelse($data as $row)
                             <tr>
                                 <td>{{$loop->index+1}}</td>
-                                <td>
-                                    @if($row->image)
-                                        <a href="{{ $row->image }}">
-                                            <img src="{{ $row->image }}" alt="{{ $row->name }}"
-                                                 class="list-thumbnail border-0" width="50" height="50">
-                                        </a>
-                                    @endif
-                                </td>
-                                <td>{{$row->course->name}}</td>
-                                <td>{{$row->customer->name}}</td>
-                                <td>{{$row->exam}}</td>
+                               
+                                <td>{{$row->exam->name}}</td>
+                                <td>{{$row->text}}</td>
+                            
 
 
-                                <td>
+                                {{-- <td> --}}
 
-                                    <a href="{{ route('getSubcrationsexam',[$row->customer->id,$row->course->id]) }}" title="الامتحانات" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-
-                                    <button class="btn btn-dark btn-sm" title="شهاده الطالب في الكورس" data-toggle="modal"
-                                        data-target="#photo{{$row->id}}"><i class="fa fa-car"></i>
-                                    </button>
+                                   
 
 
-                                    <button class="btn btn-success btn-sm" title="درجه الطالب" data-toggle="modal"
-                                        data-target="#edit{{$row->id}}"><i class="fa fa-edit"></i>
-                                    </button>
+                                 
 
                                     {{-- @can('deleted-number') --}}
                                     {{-- <button class="btn btn-danger btn-sm" data-toggle="modal"
-                                        data-target="#deleted{{$row->id}}"><i class="fa fa-trash"></i>
+                                        data-target="#deleteddeletedExam{{$row->id}}"><i class="fa fa-trash"></i>
                                     </button> --}}
                                     {{-- @endcan --}}
-                                </td>
-                                @include('admin.subcrations.photo')
-                                @include('admin.subcrations.edit')
-                                @include('admin.subcrations.deleted')
+                                {{-- </td> --}}
+                           
+                                {{-- @include('admin.subcrations.deletedExam') --}}
 
                             </tr>
                             @empty

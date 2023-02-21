@@ -80,20 +80,20 @@
                                     <td>{{$row->category->name ?? 'No'}}</td>
                                     <td>
                                         @if($row->file)
-                                            <a href="{{ $row->file }}" class="btn btn-info btn-sm">
+                                            <a href="{{ $row->file }}" title="تنزيل الملف المرفق" class="btn btn-info btn-sm">
                                                 <i class="fa fa-download"></i>
                                             </a>
                                         @endif
                                             @can('edit-course')
-                                        <a href="{{route('course.edit',$row->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('course.edit',$row->id)}}" title="تعديل الكورس" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                                             @endcan
 
                                             @can('deleted-course')
-                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-danger btn-sm" title="حذف الكورس" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fa fa-trash"></i></button>
                                             @endcan
 
 
-                                            <a href="{{ route('course.show',$row->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ route('course.show',$row->id) }}" title="جميع السيون" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                     </td>
                                     @include('admin.course.deleted')
 

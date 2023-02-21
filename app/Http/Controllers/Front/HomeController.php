@@ -11,7 +11,8 @@ class HomeController extends Controller
 {
    public function index()
    {
-      return view('front.index');
+      // return view('front.index');
+      return view('front.courses.coursesImage');
    }
 
    public function exam_list()

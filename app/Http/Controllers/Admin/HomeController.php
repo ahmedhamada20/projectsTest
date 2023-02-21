@@ -11,6 +11,7 @@ use App\Models\Number;
 use App\Models\Photo;
 use App\Models\PreviousWork;
 use App\Models\Product;
+use App\Models\sendQuesCustomer;
 use App\Models\SubcripeCorses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -22,6 +23,14 @@ class HomeController extends Controller
     //    {
     //        $this->middleware('permission:dashboard', ['only' => ['index']]);
     //    }
+
+    public function deletedgetSubcrationsexam(Request $request)
+    {
+        sendQuesCustomer::destroy($request->id);
+        toastr()->success('تم الحذف بنجاح');
+        return redirect()->back();
+    }
+
 
     public function photoExamCousrs(Request $request)
     {
@@ -60,6 +69,12 @@ class HomeController extends Controller
     {
         $data = SubcripeCorses::paginate(20);
         return view('admin.subcrations.index', compact('data'));
+    }
+
+    public function getSubcrationsexam($customer_id,$cousrs_id)
+    {
+        $data = sendQuesCustomer::where('course_id',$cousrs_id)->where('customer_id',$customer_id)->paginate(50);
+        return view('admin.subcrations.exam', compact('data'));
     }
 
     public function index()

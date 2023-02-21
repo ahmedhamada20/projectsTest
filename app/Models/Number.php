@@ -15,6 +15,7 @@ class Number extends Model
         'name',
         'notes',
         'status',
+        'course_id',
     ];
 
     protected $appends = ['image'];
@@ -45,6 +46,12 @@ class Number extends Model
     public function seo()
     {
         return $this->morphOne(Seo::class, 'seoable');
+    }
+
+
+    public function courses()
+    {
+        return $this->belongsTo(Course::class,'course_id');
     }
 
 }

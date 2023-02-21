@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Auth\CustomerLoginRequest;
+use App\Models\sendQuesCustomer;
 use App\Models\SubcripeCorses;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -13,6 +14,20 @@ use Illuminate\Support\Facades\Auth;
 class CustomerLoginController extends Controller
 {
 
+    public function sendQuesCustomers(Request $request)
+    {
+        // dd($request->all());
+        foreach ($request->exam as $key => $value) {
+            sendQuesCustomer::create([
+                'customer_id' => auth('customer')->user()->id,
+                'exam_id' => $request->exam_id[$key],
+                'text' => $value,
+                'course_id' => $request->course_id
+            ]);
+        }
+
+        return redirect()->route('my_account')->with(['success' => 'لقد تم الامتحان  بنجاح']);
+    }
     public function subsripeCousrse(Request $request)
     {
         // dd($request->all());

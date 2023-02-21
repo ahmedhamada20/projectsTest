@@ -79,19 +79,19 @@
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                     <ul class="nav navbar-nav">
-                        <li class="">
+                        {{-- <li class="">
                             <a href="{{ route('home') }}">Home</a>
-                        </li>
+                        </li> --}}
 
-                        <li>
+                        {{-- <li>
                             <a href="#" class=" has-child no-link">lessons</a>
                             <ul class="list-unstyled child-navigation">
                                 <li ><a href="{{ route('lessons_list') }}">lessons Listing with Images</a></li>
 
 
                             </ul>
-                        </li>
-
+                        </li> --}}
+{{-- 
                         <li>
                             <a href="#" class=" has-child no-link">previousWork</a>
                             <ul class="list-unstyled child-navigation">
@@ -99,16 +99,16 @@
 
 
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li>
+                        {{-- <li>
                             <a href="#" class=" has-child no-link">Exam</a>
                             <ul class="list-unstyled child-navigation">
                                 <li ><a href="{{ route('Exam_list') }}">Exam</a></li>
 
 
                             </ul>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="#" class=" has-child no-link">Courses</a>
                             <ul class="list-unstyled child-navigation">
@@ -117,37 +117,37 @@
 
                             </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#" class="has-child no-link {{ getActiveRoutesHome('events') }}">Events</a>
                             <ul class="list-unstyled child-navigation">
                                 <li><a href="{{ route('events') }}">Events Listing</a></li>
                                 <li><a href="{{ route('event_detail') }}">Event Detail</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ route('abouts') }}" class="{{ getActiveRoutesHome('abouts') }}">About Us</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#" class="has-child no-link {{ getActiveRoutesHome('blogs') }}">Blog</a>
                             <ul class="list-unstyled child-navigation">
                                 <li><a href="{{ route('blogs') }}">Blog listing</a></li>
                                 <li><a href="{{ route('blog_detail') }}">Blog Detail</a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="#" class="has-child no-link">Pages</a>
                             <ul class="list-unstyled child-navigation">
 
                                 <li><a href="{{ route('my_account') }}">My Account</a></li>
-                                <li><a href="{{ route('members') }}">Members</a></li>
-                                <li><a href="{{ route('members_detail') }}">Member Detail</a></li>
-                                <li><a href="{{ route('register_sign') }}">Register & Sign In</a></li>
+                                {{-- <li><a href="{{ route('members') }}">Members</a></li> --}}
+                                {{-- <li><a href="{{ route('members_detail') }}">Member Detail</a></li> --}}
+                                {{-- <li><a href="{{ route('register_sign') }}">Register & Sign In</a></li> --}}
 
-                            </ul>
-                        </li>
-                        <li>
+                            {{-- </ul> --}}
+                        {{-- </li> --}}
+                        {{-- <li>
                             <a href="{{ route('contact_us') }}" class="{{ getActiveRoutesHome('contact_us') }}">Contact Us</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav><!-- /.navbar collapse-->
             </div><!-- /.container -->

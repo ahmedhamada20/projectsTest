@@ -28,6 +28,19 @@
 
                         <div class="row">
                             <div class="col">
+                                <label>courses</label>
+                                <select class="form-control" name="course_id" required>
+                                    <option value="" disabled selected>-- اختر الكورس المخصص --</option>
+                                    @foreach (App\Models\Course::whereStatus(true)->get() as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row">
+                            <div class="col">
                                 <label>الاسم بالغه العربيه</label>
                                 <input type="text" name="name" required value="{{old('name')}}"
                                        class="form-control @error('name') is-invalid @enderror">

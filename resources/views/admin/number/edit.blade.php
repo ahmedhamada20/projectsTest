@@ -29,6 +29,18 @@
 
                         <input type="hidden" name="id" value="{{$data->id}}">
 
+
+                        <div class="row">
+                            <div class="col">
+                                <label>courses</label>
+                                <select class="form-control" name="course_id" required>
+                                    @foreach (App\Models\Course::whereStatus(true)->get() as $row)
+                                        <option value="{{ $row->id }}" {{ $row->id == $data->course_id ? 'selected' : null }}>{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col">
                                 <label>الاسم بالغه العربيه</label>
